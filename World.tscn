@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://0no6yf0hrw6u"]
+
+[ext_resource type="Texture2D" uid="uid://0w8vfsasw8xm" path="res://18974.png" id="1_7wsb6"]
+
+[node name="World" type="Node2D"]
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pixel Reference" type="Sprite2D" parent="."]
+position = Vector2(204, 228)
+texture = ExtResource("1_7wsb6")
