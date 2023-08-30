@@ -17,3 +17,7 @@ offset_bottom = 40.0
 [node name="Pixel Reference" type="Sprite2D" parent="."]
 position = Vector2(204, 228)
 texture = ExtResource("1_7wsb6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(160, 120)
+zoom = Vector2(2, 2)
