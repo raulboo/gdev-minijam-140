@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://0no6yf0hrw6u"]
+[gd_scene load_steps=3 format=3 uid="uid://0no6yf0hrw6u"]
 
 [ext_resource type="Texture2D" uid="uid://0w8vfsasw8xm" path="res://18974.png" id="1_7wsb6"]
+
+[sub_resource type="TileSet" id="TileSet_ihkk4"]
 
 [node name="World" type="Node2D"]
 
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Map" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Map"]
+tile_set = SubResource("TileSet_ihkk4")
+format = 2
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
