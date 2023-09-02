@@ -14,7 +14,7 @@ func _physics_process(delta):
 	var direction = Vector2(direction_x, direction_y)
 
 	if direction.length():
-		var ang = round(rad_to_deg(direction.angle()))/90
+		var ang = round(rad_to_deg(direction.angle()))/90 as int
 		match (ang):
 			-1:
 				last_direction="up"
