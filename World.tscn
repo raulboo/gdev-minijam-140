@@ -1,11 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://0no6yf0hrw6u"]
+[gd_scene load_steps=36 format=3 uid="uid://0no6yf0hrw6u"]
 
 [ext_resource type="Texture2D" uid="uid://0w8vfsasw8xm" path="res://18974.png" id="1_7wsb6"]
 [ext_resource type="Texture2D" uid="uid://b5akyfi5gy3ap" path="res://sprites/Grass.png" id="1_vx3dt"]
 [ext_resource type="Texture2D" uid="uid://47mjrq68o1ha" path="res://sprites/Fences.png" id="2_bo021"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_l62pc"]
+[ext_resource type="Script" path="res://scripts/Entities.gd" id="3_cgx1w"]
 [ext_resource type="Texture2D" uid="uid://c5p7tkkgrs318" path="res://sprites/Basic Charakter Spritesheet.png" id="3_lj5fj"]
 [ext_resource type="Texture2D" uid="uid://bim4yev5n0v0t" path="res://sprites/Basic Charakter Actions.png" id="4_43ajc"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="4_800c0"]
+[ext_resource type="PackedScene" uid="uid://d03tnkaofaf1g" path="res://egg.tscn" id="7_wtxym"]
+[ext_resource type="Script" path="res://scripts/BulletManager.gd" id="8_kj1mm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgfoy"]
 texture = ExtResource("1_vx3dt")
@@ -334,19 +337,28 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
 [node name="Entities" type="Node2D" parent="."]
+script = ExtResource("3_cgx1w")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Entities"]
-position = Vector2(161, 115)
-script = ExtResource("3_l62pc")
+[node name="Player" type="CharacterBody2D" parent="Entities"]
+position = Vector2(160, 130)
+script = ExtResource("4_800c0")
+Egg = ExtResource("7_wtxym")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Entities/CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Entities/Player"]
 sprite_frames = SubResource("SpriteFrames_5fhdw")
 animation = &"run_up"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Player"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_0bstb")
+
+[node name="AttackCooldown" type="Timer" parent="Entities/Player"]
+wait_time = 0.5
+one_shot = true
+
+[node name="BulletManager" type="Node2D" parent="Entities"]
+script = ExtResource("8_kj1mm")
 
 [node name="UI" type="Control" parent="."]
 visible = false
