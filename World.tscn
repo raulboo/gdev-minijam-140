@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://0no6yf0hrw6u"]
+[gd_scene load_steps=14 format=3 uid="uid://0no6yf0hrw6u"]
 
 [ext_resource type="Texture2D" uid="uid://0w8vfsasw8xm" path="res://18974.png" id="1_7wsb6"]
 [ext_resource type="Texture2D" uid="uid://b5akyfi5gy3ap" path="res://sprites/Grass.png" id="1_vx3dt"]
 [ext_resource type="Texture2D" uid="uid://47mjrq68o1ha" path="res://sprites/Fences.png" id="2_bo021"]
 [ext_resource type="Script" path="res://scripts/Entities.gd" id="3_cgx1w"]
 [ext_resource type="PackedScene" uid="uid://bdivqvdha4rmb" path="res://player.tscn" id="4_ald0n"]
+[ext_resource type="Script" path="res://scripts/PiranhaManager.gd" id="7_atb55"]
 [ext_resource type="PackedScene" uid="uid://d03tnkaofaf1g" path="res://egg.tscn" id="7_wtxym"]
+[ext_resource type="PackedScene" uid="uid://cqy3wdipjwtyr" path="res://piranha.tscn" id="8_d6twc"]
 [ext_resource type="Script" path="res://scripts/BulletManager.gd" id="8_kj1mm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgfoy"]
@@ -138,6 +140,11 @@ script = ExtResource("8_kj1mm")
 Egg = ExtResource("7_wtxym")
 
 [node name="PiranhaManager" type="Node2D" parent="Entities"]
+script = ExtResource("7_atb55")
+Piranha = ExtResource("8_d6twc")
+
+[node name="SpawnTimer" type="Timer" parent="Entities/PiranhaManager"]
+autostart = true
 
 [node name="UI" type="Control" parent="."]
 visible = false
