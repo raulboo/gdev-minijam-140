@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-signal player_fired_bullet(bullet, position, direction)
+signal player_fired_bullet(position, direction)
 
 @onready var attack_cooldown: Timer = $AttackCooldown
 
 const SPEED = 100.0
 var last_direction = "down"
+
 
 func _physics_process(delta):
 
@@ -15,18 +16,22 @@ func _physics_process(delta):
 
 	var movement_direction = move()
 	animate(movement_direction)
-	
+	$AnimatedSprite2D.z_index = 2
+
 #func _unhandled_input(event):
-#	if event.is_action_released("shoot"):
+#	if event.is_action("shoot"):
 #		shoot()
-		
+
 func _input(event):
 	if event.is_action("shoot"):
 		shoot()
 		
 func shoot():
 	if attack_cooldown.is_stopped():
-		emit_signal("player_fired_bullet", global_position, last_direction)
+		var water_can : Node2D = $WateringCan
+		var water_can_pos = water_can.global_position
+		var water_can_dir = (water_can_pos - global_position).normalized()
+		emit_signal("player_fired_bullet", water_can_pos, water_can_dir)
 		attack_cooldown.start()
 	else:
 		pass
