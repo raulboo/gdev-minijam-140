@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/Piranha.gd" id="1_l8o48"]
 [ext_resource type="Texture2D" uid="uid://cjgb62vw73mvu" path="res://sprites/Characters/Free Chicken Sprites.png" id="2_bdu5l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x8ay"]
-size = Vector2(11, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dksuf"]
+radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_grd2l"]
 atlas = ExtResource("2_bdu5l")
@@ -65,9 +65,9 @@ animations = [{
 script = ExtResource("1_l8o48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0)
-shape = SubResource("RectangleShape2D_2x8ay")
+shape = SubResource("CircleShape2D_dksuf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_rasrx")
 animation = &"idle"
