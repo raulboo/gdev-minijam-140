@@ -17,3 +17,4 @@ func _physics_process(delta):
 	var max_distance = 15
 	if (distance < max_distance):
 		get_tree().reload_current_scene()
+

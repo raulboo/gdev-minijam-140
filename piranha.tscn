@@ -61,7 +61,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Piranha" type="CharacterBody2D"]
+[node name="Piranha" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_l8o48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0no6yf0hrw6u"]
+[gd_scene load_steps=18 format=3 uid="uid://0no6yf0hrw6u"]
 
 [ext_resource type="Texture2D" uid="uid://0w8vfsasw8xm" path="res://18974.png" id="1_7wsb6"]
 [ext_resource type="Script" path="res://scripts/Map.gd" id="1_sdeau"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d03tnkaofaf1g" path="res://egg.tscn" id="7_wtxym"]
 [ext_resource type="PackedScene" uid="uid://cqy3wdipjwtyr" path="res://piranha.tscn" id="8_d6twc"]
 [ext_resource type="Script" path="res://scripts/BulletManager.gd" id="8_kj1mm"]
+[ext_resource type="Script" path="res://scripts/ScoreManager.gd" id="12_62n5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgfoy"]
 texture = ExtResource("1_vx3dt")
@@ -229,3 +230,8 @@ texture = ExtResource("1_7wsb6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(160, 120)
+
+[node name="ScoreManager" type="Node2D" parent="."]
+script = ExtResource("12_62n5h")
+
+[connection signal="painted_tile" from="Map" to="ScoreManager" method="_on_map_painted_tile"]
