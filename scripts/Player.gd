@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 signal player_fired_bullet(position, direction)
+signal player_dead
+signal player_steps
 
 @onready var attack_cooldown: Timer = $AttackCooldown
 
 const SPEED = 100.0
 var last_direction = "down"
-
 
 func _physics_process(delta):
 
@@ -17,6 +18,10 @@ func _physics_process(delta):
 	var movement_direction = move()
 	animate(movement_direction)
 	$AnimatedSprite2D.z_index = 2
+	
+	if velocity.length_squared()>0:
+		emit_signal("player_steps")
+	
 
 #func _unhandled_input(event):
 #	if event.is_action("shoot"):

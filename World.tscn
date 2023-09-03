@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0no6yf0hrw6u"]
+[gd_scene load_steps=25 format=3 uid="uid://0no6yf0hrw6u"]
 
 [ext_resource type="Texture2D" uid="uid://0w8vfsasw8xm" path="res://18974.png" id="1_7wsb6"]
 [ext_resource type="Script" path="res://scripts/Map.gd" id="1_sdeau"]
@@ -12,6 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cqy3wdipjwtyr" path="res://piranha.tscn" id="8_d6twc"]
 [ext_resource type="Script" path="res://scripts/BulletManager.gd" id="8_kj1mm"]
 [ext_resource type="Script" path="res://scripts/ScoreManager.gd" id="12_62n5h"]
+[ext_resource type="Script" path="res://scripts/SFXManager.gd" id="13_7kwpm"]
+[ext_resource type="AudioStream" uid="uid://f4j5sw8wse61" path="res://sound/converter_piranha.wav" id="14_xfmuu"]
+[ext_resource type="AudioStream" uid="uid://c4fin88krvn4w" path="res://sound/morte.wav" id="15_hcrrv"]
+[ext_resource type="AudioStream" uid="uid://d3v5g58jh35fw" path="res://sound/laserShoot.wav" id="16_bemm4"]
+[ext_resource type="AudioStream" uid="uid://dwhlosyfn2q8r" path="res://sound/passos.wav" id="17_0rks5"]
+[ext_resource type="AudioStream" uid="uid://ds6fyp40ypd4u" path="res://sound/score_up.wav" id="18_455a5"]
+[ext_resource type="AudioStream" uid="uid://cabpe7psn7vpg" path="res://sound/grama_pintada.wav" id="19_gkgw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgfoy"]
 texture = ExtResource("1_vx3dt")
@@ -240,4 +247,29 @@ offset = Vector2(160, 120)
 [node name="ScoreManager" type="Node2D" parent="."]
 script = ExtResource("12_62n5h")
 
-[connection signal="painted_tile" from="Map" to="ScoreManager" method="_on_map_painted_tile"]
+[node name="SFXManager" type="Node" parent="."]
+script = ExtResource("13_7kwpm")
+
+[node name="Convert" type="AudioStreamPlayer" parent="SFXManager"]
+stream = ExtResource("14_xfmuu")
+
+[node name="Death" type="AudioStreamPlayer" parent="SFXManager"]
+stream = ExtResource("15_hcrrv")
+
+[node name="Atirar" type="AudioStreamPlayer" parent="SFXManager"]
+stream = ExtResource("16_bemm4")
+
+[node name="Step" type="AudioStreamPlayer" parent="SFXManager"]
+stream = ExtResource("17_0rks5")
+
+[node name="Score" type="AudioStreamPlayer" parent="SFXManager"]
+stream = ExtResource("18_455a5")
+
+[node name="Paint" type="AudioStreamPlayer" parent="SFXManager"]
+stream = ExtResource("19_gkgw6")
+volume_db = -10.0
+
+[connection signal="painted_tile" from="Map" to="SFXManager" method="_on_map_painted_tile"]
+[connection signal="player_fired_bullet" from="Entities/Player" to="SFXManager" method="_on_player_player_fired_bullet"]
+[connection signal="player_steps" from="Entities/Player" to="SFXManager" method="_on_player_player_steps"]
+[connection signal="score_up" from="ScoreManager" to="SFXManager" method="_on_score_manager_score_up"]
