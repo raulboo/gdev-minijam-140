@@ -269,6 +269,7 @@ stream = ExtResource("18_455a5")
 stream = ExtResource("19_gkgw6")
 volume_db = -10.0
 
+[connection signal="painted_tile" from="Map" to="ScoreManager" method="_on_map_painted_tile"]
 [connection signal="painted_tile" from="Map" to="SFXManager" method="_on_map_painted_tile"]
 [connection signal="player_fired_bullet" from="Entities/Player" to="SFXManager" method="_on_player_player_fired_bullet"]
 [connection signal="player_steps" from="Entities/Player" to="SFXManager" method="_on_player_player_steps"]

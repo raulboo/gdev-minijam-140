@@ -225,7 +225,7 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_0bstb")
 
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.05
 one_shot = true
 
 [node name="WateringCan" parent="." instance=ExtResource("4_ak5ld")]

@@ -19,6 +19,9 @@ func _physics_process(delta):
 	animate(movement_direction)
 	$AnimatedSprite2D.z_index = 2
 	
+	if Input.is_action_pressed("shoot"):
+		shoot()
+	
 	if velocity.length_squared()>0:
 		emit_signal("player_steps")
 	
@@ -27,9 +30,9 @@ func _physics_process(delta):
 #	if event.is_action("shoot"):
 #		shoot()
 
-func _input(event):
-	if event.is_action("shoot"):
-		shoot()
+#func _input(event):
+#	if event.is_action("shoot"):
+#		shoot()
 		
 func shoot():
 	if attack_cooldown.is_stopped():
@@ -38,8 +41,6 @@ func shoot():
 		var water_can_dir = (water_can_pos - global_position).normalized()
 		emit_signal("player_fired_bullet", water_can_pos, water_can_dir)
 		attack_cooldown.start()
-	else:
-		pass
 
 # Handles player movement and returns its direction vector
 func move() -> Vector2:

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqy3wdipjwtyr"]
+
+[ext_resource type="Script" path="res://scripts/Piranha.gd" id="1_l8o48"]
+[ext_resource type="Texture2D" uid="uid://cjgb62vw73mvu" path="res://sprites/Characters/Free Chicken Sprites.png" id="2_bdu5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atwrw"]
+size = Vector2(10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grd2l"]
+atlas = ExtResource("2_bdu5l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0evh"]
+atlas = ExtResource("2_bdu5l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilbmx"]
+atlas = ExtResource("2_bdu5l")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxq60"]
+atlas = ExtResource("2_bdu5l")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0tpa"]
+atlas = ExtResource("2_bdu5l")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm5nl"]
+atlas = ExtResource("2_bdu5l")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rasrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grd2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0evh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilbmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxq60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0tpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm5nl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Piranha" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_l8o48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_atwrw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_rasrx")
+animation = &"idle"
