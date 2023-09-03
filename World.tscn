@@ -360,6 +360,8 @@ one_shot = true
 [node name="BulletManager" type="Node2D" parent="Entities"]
 script = ExtResource("8_kj1mm")
 
+[node name="PiranhaManager" type="Node2D" parent="Entities"]
+
 [node name="UI" type="Control" parent="."]
 visible = false
 layout_mode = 3

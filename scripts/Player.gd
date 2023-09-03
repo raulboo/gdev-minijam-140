@@ -17,8 +17,12 @@ func _physics_process(delta):
 	var movement_direction = move()
 	animate(movement_direction)
 	
-func _unhandled_input(event):
-	if event.is_action_released("shoot"):
+#func _unhandled_input(event):
+#	if event.is_action_released("shoot"):
+#		shoot()
+		
+func _input(event):
+	if event.is_action("shoot"):
 		shoot()
 		
 func shoot():
