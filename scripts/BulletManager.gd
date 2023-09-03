@@ -21,4 +21,4 @@ func handle_bullet_spawned(position: Vector2, direction: String):
 			bullet_rotation = 0
 	bullet.global_position = position
 	bullet.set_direction(bullet_direction, bullet_rotation)
-	add_child(bullet)
+	get_parent().add_child(bullet)

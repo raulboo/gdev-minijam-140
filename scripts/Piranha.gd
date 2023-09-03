@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 100
+const SPEED = 50
 
 @onready var player = $/root/World/Entities/Player
 
