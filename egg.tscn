@@ -23,6 +23,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_11viw")
 
 [node name="KillTimer" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
