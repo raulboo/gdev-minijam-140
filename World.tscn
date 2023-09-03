@@ -217,11 +217,17 @@ Piranha = ExtResource("8_d6twc")
 autostart = true
 
 [node name="UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 62.0
+offset_bottom = 42.0
 
 [node name="Pixel Reference" type="Sprite2D" parent="."]
 visible = false
