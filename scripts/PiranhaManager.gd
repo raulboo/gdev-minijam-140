@@ -10,6 +10,6 @@ func _ready():
 func spawn_piranha():
 	var pir = Piranha.instantiate()
 	pir.position=Vector2(rng.randi_range(0,320),rng.randi_range(0,240))
-	add_child(pir)
+	get_parent().add_child(pir)
 	
 
