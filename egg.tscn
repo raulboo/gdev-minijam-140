@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvg0t"]
 size = Vector2(6, 6)
 
-[node name="Egg" type="Area2D"]
+[node name="Egg" type="Area2D" groups=["cleaner"]]
 script = ExtResource("1_i8xhn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

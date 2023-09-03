@@ -2,12 +2,14 @@ extends Node2D
 
 @export var Piranha : PackedScene
 
-# Called when the node enters the scene tree for the first time.
+@onready var rng = RandomNumberGenerator.new()
 func _ready():
-	pass
+	$SpawnTimer.timeout.connect(spawn_piranha)
 	
 	
 func spawn_piranha():
-	Piranha
+	var pir = Piranha.instantiate()
+	pir.position=Vector2(rng.randi_range(0,320),rng.randi_range(0,240))
+	get_parent().add_child(pir)
 	
 

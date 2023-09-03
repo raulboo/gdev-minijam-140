@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjgb62vw73mvu" path="res://sprites/Characters/Free Chicken Sprites.png" id="2_bdu5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x8ay"]
-size = Vector2(11, 11)
+size = Vector2(11, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_grd2l"]
 atlas = ExtResource("2_bdu5l")
@@ -65,7 +65,7 @@ animations = [{
 script = ExtResource("1_l8o48")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0.5)
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_2x8ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
