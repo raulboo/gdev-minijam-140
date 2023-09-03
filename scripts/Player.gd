@@ -3,7 +3,6 @@ extends CharacterBody2D
 signal player_fired_bullet(bullet, position, direction)
 
 @onready var attack_cooldown: Timer = $AttackCooldown
-@export var Egg : PackedScene
 
 const SPEED = 100.0
 var last_direction = "down"
@@ -27,8 +26,7 @@ func _input(event):
 		
 func shoot():
 	if attack_cooldown.is_stopped():
-		var bullet_instance = Egg.instantiate()
-		emit_signal("player_fired_bullet", bullet_instance, global_position, last_direction)
+		emit_signal("player_fired_bullet", global_position, last_direction)
 		attack_cooldown.start()
 	else:
 		pass
