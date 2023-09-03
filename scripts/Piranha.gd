@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 50
 
 @onready var player = $/root/World/Entities/Player
-
+@onready var animation = ""
 
 func _physics_process(delta):
 	# move towards player
@@ -17,4 +17,9 @@ func _physics_process(delta):
 	var max_distance = 11
 	if (distance < max_distance):
 		get_tree().reload_current_scene()
-
+		
+	if velocity:
+		animation = "walk"
+	else:
+		animation = "idle"
+	$"AnimatedSprite2D".play(animation)
