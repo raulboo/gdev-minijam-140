@@ -14,6 +14,7 @@ func _physics_process(delta):
 	
 	# restart the scene if player is too close
 	var distance = player.position.distance_to(position)
-	var max_distance = 15
+	var max_distance = 11
 	if (distance < max_distance):
 		get_tree().reload_current_scene()
+
