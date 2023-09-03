@@ -1,6 +1,9 @@
 extends Node2D
 
-func handle_bullet_spawned(bullet: Egg, position: Vector2, direction: String):
+@export var Egg: PackedScene
+
+func handle_bullet_spawned(position: Vector2, direction: String):
+	var bullet = Egg.instantiate()
 	var bullet_direction = Vector2.ZERO
 	var bullet_rotation = 0
 	match(direction):
