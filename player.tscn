@@ -1,9 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4j7bvbs4df4"]
+[gd_scene load_steps=27 format=3 uid="uid://bdivqvdha4rmb"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_qbyka"]
 [ext_resource type="Texture2D" uid="uid://c5p7tkkgrs318" path="res://sprites/Basic Charakter Spritesheet.png" id="2_85xi1"]
 [ext_resource type="Texture2D" uid="uid://bim4yev5n0v0t" path="res://sprites/Basic Charakter Actions.png" id="3_eq1r7"]
-[ext_resource type="PackedScene" path="res://watering_can.tscn" id="4_ak5ld"]
+[ext_resource type="PackedScene" uid="uid://b2edysergyh6r" path="res://watering_can.tscn" id="4_ak5ld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ws38u"]
 atlas = ExtResource("2_85xi1")
@@ -208,8 +208,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4g2v4"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bstb"]
+size = Vector2(10, 10)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(160, 130)
@@ -217,12 +217,12 @@ script = ExtResource("1_qbyka")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_5fhdw")
 animation = &"run_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_4g2v4")
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0bstb")
 
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 0.5
