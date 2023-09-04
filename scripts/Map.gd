@@ -11,3 +11,7 @@ func _physics_process(delta):
 			if $Grass.get_cell_source_id(0, tile_pos) == 2:
 				$Grass.set_cell(0, tile_pos,1,Vector2i(0,0))
 				emit_signal("painted_tile")
+				
+				
+func new_room():
+	$SolidObjects.global_translate(Vector2(-320,0))
